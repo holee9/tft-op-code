@@ -30,7 +30,7 @@
 │  │  - Diagnostic Display                               │ │
 │  └─────────────────────────────────────────────────────┘ │
 └─────────────────────┬───────────────────────────────────┘
-                      │ USB/Ethernet (Control + Image Data)
+                      │ Ethernet (Control + Image Data)
 ┌─────────────────────▼───────────────────────────────────┐
 │                MCU Layer (i.MX8 Plus)                    │
 │  ┌─────────────────────────────────────────────────────┐ │
@@ -322,7 +322,7 @@ i.MX8 Plus Top Level
 │   │
 │   └── Communication_Services
 │       ├── FPGA_Protocol_Service
-│       ├── USB/Ethernet_Service
+│       ├── Ethernet_Service
 │       └── Host_Protocol_Service
 │
 └── Cortex-M4 (Real-time Core - FreeRTOS)
@@ -362,7 +362,7 @@ Host Application (Future Implementation)
 │       └── Adaptive_Coefficient_Selector
 │
 ├── Device_Interface
-│   ├── USB/Ethernet_Driver
+│   ├── Ethernet_Driver
 │   ├── Frame_Receiver
 │   └── Metadata_Parser
 │
@@ -551,7 +551,7 @@ float estimate_dark_level(float T, uint32_t t_idle, DarkLUT_Entry lut[6][6]);
 | 온도 센서 | 1 Hz 폴링 | 온도 변화 응답 지연 |
 | FPGA 리소스 | 제한된 DSP 블록 | 보정 알고리즘은 Host로 이동 |
 | MCU 연산력 | FPU 없을 수 있음 | Arrhenius 모델 근사화 필요 |
-| USB 대역폭 | ~480 Mbps | 5fps 전송 가능 |
+| Ethernet 대역폭 | ~1 Gbps | 5fps 이상 전송 가능 |
 
 ---
 
@@ -659,7 +659,7 @@ TftLeakageController/
 ├── Communication/                  # 외부 통신
 │   ├── FpgaProtocolService.cs      # FPGA 제어 프로토콜
 │   ├── HostProtocolService.cs      # Host 통신 프로토콜
-│   └── UsbEthernetServer.cs        # USB/Ethernet 서버
+│   └── EthernetServer.cs           # Ethernet 서버
 │
 ├── Infrastructure/                 # 인프라스트럭처
 │   ├── Logging/                    # 로깅

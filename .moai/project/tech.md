@@ -42,7 +42,7 @@
 | 클럭 | Cortex-A53: 최대 1.5 GHz, Cortex-M4: 최대 400 MHz |
 | 메모리 | 64-bit LPDDR4 지원 |
 | ADC | 12-bit, 4채널 이상 (온도 센서용) |
-| 통신 | SPI/I2C (FPGA 통신), USB/Ethernet (Host 통신) |
+| 통신 | SPI/I2C (FPGA 통신), Ethernet (Host 통신) |
 | 타이머 | 32-bit 타이머 2개 이상 |
 | 개발 환경 | .NET 지원 가능 |
 
@@ -54,7 +54,7 @@
 | RAM | 8 GB |
 | 저장소 | 500 MB 여유 공간 |
 | OS | Windows 10/11, Linux (Ubuntu 20.04+) |
-| 통신 | USB 3.0 또는 Gigabit Ethernet |
+| 통신 | Gigabit Ethernet |
 
 ---
 
@@ -95,7 +95,7 @@ FPGA IP Blocks
 │   ├── Periodic Timer
 │   └── Row-only Reset Controller
 │
-└── USB/Uart_Interface_IP
+└── Ethernet_Interface_IP
     ├── Control Register Interface
     └── Metadata Injection
 ```
@@ -146,7 +146,7 @@ FPGA IP Blocks
 // Cortex-M4 (Real-time Core)
 ├── HAL_Drivers
 │   ├── GPIO
-│   ├── UART/USB
+│   ├── UART
 │   ├── SPI/I2C
 │   ├── ADC (Temperature)
 │   └── TIM (PWM, Timers)
@@ -461,7 +461,7 @@ jobs:
 ### 10.2 보안 고려사항
 
 - 민감한 환자 데이터 처리 시 암호화 적용
-- USB 통신 시 인증 절차
+- Ethernet 통신 시 인증 절차
 - 펌웨어 업데이트 시 서명 검증
 
 ---
@@ -854,7 +854,7 @@ public class FpgaSerialCommunication : IDisposable
 {
     private readonly SerialPort _serialPort;
 
-    public FpgaSerialCommunication(string portName = "/dev/ttyUSB0")
+    public FpgaSerialCommunication(string portName = "/dev/ttyUSB0")  // UART for FPGA (debug only)
     {
         _serialPort = new SerialPort(portName)
         {
@@ -1347,7 +1347,7 @@ KERNEL=="i2c-[0-9]*", MODE="0660", GROUP="i2c"
 # SPI 장치
 KERNEL=="spidev*", MODE="0660", GROUP="spi"
 
-# 시리얼 포트
+# 시리얼 포트 (Debug용 UART)
 KERNEL=="ttyUSB*", MODE="0660", GROUP="dialout"
 
 # 사용자 그룹 추가

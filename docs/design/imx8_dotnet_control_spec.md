@@ -76,7 +76,7 @@ This specification defines the .NET-based control software running on i.MX8 Plus
          ▼                                    ▼
     ┌─────────┐                          ┌─────────┐
     │  FPGA   │                          │  Host   │
-    │(SPI IF) │                          │(USB/ETH)│
+    │(SPI IF) │                          │(Ethernet)│
     └─────────┘                          └─────────┘
 ```
 
@@ -816,7 +816,7 @@ public enum ResponseCode : byte
 namespace TftLeakage.Core.Services;
 
 /// <summary>
-/// Processes commands from Host via USB/Ethernet
+/// Processes commands from Host via Ethernet
 /// </summary>
 public class HostCommandProcessor
 {

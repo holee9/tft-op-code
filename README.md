@@ -56,7 +56,7 @@
 |  (Yocto BSP)   |             |   Artix-7)     |             |  R1717AS01.3   |
 +----------------+             +----------------+             +----------------+
        |                              |                               |
-       | USB/Ethernet                 | Bias Control                  |
+       | Ethernet                    | Bias Control                  |
        v                              v                               v
 +----------------+             +----------------+             +----------------+
 |  .NET App      |             |  Gate Driver   |             |  Bias Mux /    |
@@ -138,7 +138,7 @@
 | **UI Framework** | <!-- Status: Not Started -->: :black_circle: | WPF/WinUI3 미정 |
 | **2D Dark LUT** | <!-- Status: Pending -->: :black_circle: | 온도 x 노출시간 LUT 보간 |
 | **Image Processing** | <!-- Status: Pending -->: :black_circle: | Dark 보정, Blind 픽셀 보정 |
-| **Communication** | <!-- Status: Pending -->: :black_circle: | USB/Ethernet 프로토콜 |
+| **Communication** | <!-- Status: Pending -->: :black_circle: | Ethernet 프로토콜 |
 
 **Technology**: .NET 8, C#, Windows 11
 
