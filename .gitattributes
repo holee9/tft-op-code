@@ -1,0 +1,61 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Source code
+*.c text eol=lf
+*.h text eol=lf
+*.cpp text eol=lf
+*.hpp text eol=lf
+*.cc text eol=lf
+*.cxx text eol=lf
+*.py text eol=lf
+*.rs text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.jsx text eol=lf
+*.json text eol=lf
+*.xml text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.sh text eol=lf
+*.tcl text eol=lf
+*.v text eol=lf
+*.vh text eol=lf
+*.sv text eol=lf
+*.svh text eol=lf
+*.xdc text eol=lf
+*.sdc text eol=lf
+
+# Ensure UTF-8 encoding for Markdown files
+*.md text diff=utf8 merge=union eol=lf
+
+# Windows specific files
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.bin binary
+*.bit binary
+*.mse binary
+*.mcs binary
+
+# FPGA specific
+*.bitstream binary
+*.rbf binary
+
+# Don't diff lock files
+*.lock -diff
+
+# Store GitHub workflows with LF
+.github/workflows/* text eol=lf
